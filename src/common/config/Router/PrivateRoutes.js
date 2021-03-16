@@ -1,9 +1,11 @@
 import { Route, Redirect } from 'react-router-dom'
-
-// Sentinel placeholder
-const isLogin = true
+import { useSelector, shallowEqual } from 'react-redux'
+import { loginSelector } from './routerSelector'
 
 const PrivateRoutes = ({ component: Component, exact, path, restricted, ...rest }) => {
+
+    const isLogin = useSelector(loginSelector(), shallowEqual)
+
     return (
         <Route
             exact={exact}
