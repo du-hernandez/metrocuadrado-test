@@ -1,10 +1,12 @@
 import { Button } from 'antd'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../../services/Auth/AuthSlice'
 
 const PublicLayout = ({ children }) => {
 
     const dispatch = useDispatch()
+    // const state = useSelector(state => state)
+    // console.log(state)
 
     return (
         <div>

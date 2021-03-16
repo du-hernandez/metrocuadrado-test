@@ -1,23 +1,28 @@
-import { Button } from 'antd'
-import { useDispatch } from 'react-redux'
-import { authActions } from '../../../services/Auth/AuthSlice'
+import { Layout, Breadcrumb } from 'antd';
+import { useLocation } from 'react-router-dom'
+import { MapRouteBreaks } from '../../utils'
+import PrivateHeader from './components/Header/Header'
+import PrivateBreadcrumb from './components/Breadcrumb/Breadcrumb'
+
+const { Content, Footer } = Layout;
 
 const PrivateLayout = ({ children }) => {
 
-    const dispatch = useDispatch()
+    const location = useLocation()
+
+    const mapRoutes = MapRouteBreaks(location.pathname, '/')
 
     return (
-        <div>
-            <h1>
-                PrivateLayout
-            </h1>
-            <Button
-                type="primary"
-                onClick={() => dispatch(authActions.signOut())}
-            >Sign Out
-            </Button>
-            {children}
-        </div>
+        <Layout className="layout">
+            <PrivateHeader />
+            <Content className='private-content-layout'>
+                <PrivateBreadcrumb />
+                <div className="">
+                    {children}
+                </div>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>Footer</Footer>
+        </Layout>
     )
 }
 

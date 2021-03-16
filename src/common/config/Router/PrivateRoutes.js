@@ -10,9 +10,7 @@ const PrivateRoutes = ({ component: Component, exact, path, restricted, ...rest 
         <Route
             exact={exact}
             path={path}
-            render={props => (
-                isLogin ? <Component {...props} /> : <Redirect to='/' />
-            )}
+            render={props => isLogin ? <Component {...props} /> : <Redirect to='/' />}
             {...rest}
         />
     )

@@ -10,9 +10,7 @@ const PublicRoutes = ({ component: Component, exact, path, restricted, ...rest }
         <Route
             exact={exact}
             path={path}
-            render={props => (
-                (isLogin && restricted) ? <Redirect to='/home' /> : <Component {...props} />
-            )}
+            render={props => (isLogin && restricted) ? <Redirect to='/home' /> : <Component {...props} />}
             {...rest}
         />
     )

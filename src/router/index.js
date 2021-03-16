@@ -9,7 +9,7 @@ import { Layout } from '../common/layouts'
 
 const HandelrRoutes = () => {
 
-    const PublicRoutesComponents = PublicRoutesMap.map(route => {
+    const publicRoutesComponents = PublicRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
         return (
             <PublicRoutes
@@ -23,7 +23,7 @@ const HandelrRoutes = () => {
     })
 
 
-    const PrivateRoutesComponents = PrivateRoutesMap.map(route => {
+    const privateRoutesComponents = PrivateRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
         return (
             <PrivateRoutes
@@ -41,7 +41,7 @@ const HandelrRoutes = () => {
         <Router>
             <Switch>
                 <Layout>
-                    {[PrivateRoutesComponents, PublicRoutesComponents]}
+                    {[privateRoutesComponents, publicRoutesComponents]}
                 </Layout>
             </Switch>
         </Router>

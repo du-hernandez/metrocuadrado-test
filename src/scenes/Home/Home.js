@@ -17,7 +17,7 @@ const Home = () => {
     // console.log(clothe)
 
     return (
-        <div>
+        <div style={{}}>
             <p>Lista de Categorías de Prendas</p>
         </div>
     )
