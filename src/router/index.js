@@ -3,16 +3,16 @@ import {
     Switch
 } from 'react-router-dom'
 import { PrivateRoutes, PublicRoutes } from '../common/config'
-import { RoutesMap } from './routes_map'
+import { PrivateRoutesMap, PublicRoutesMap } from './routes_map'
 
 const HandelrRoutes = () => {
 
-    const { public, private } = RoutesMap
 
-    const publicRoutes = public.map(route => {
+    const publicRoutesComponents = PublicRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
         return (
             <PublicRoutes
+                key={path}
                 component={component}
                 exact={exact}
                 path={path}
@@ -21,10 +21,11 @@ const HandelrRoutes = () => {
         )
     })
 
-    const privateRoutes = private.map(route => {
+    const privateRoutesComponents = PrivateRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
         return (
             <PrivateRoutes
+                key={path}
                 component={component}
                 exact={exact}
                 path={path}
@@ -36,7 +37,7 @@ const HandelrRoutes = () => {
     return (
         <Router>
             <Switch>
-                {[...publicRoutes, ...privateRoutes]}
+                {[...publicRoutesComponents, ...privateRoutesComponents]}
             </Switch>
         </Router>
     )
