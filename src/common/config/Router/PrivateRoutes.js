@@ -1,7 +1,7 @@
 import { Route, Redirect } from 'react-router-dom'
 
 // Sentinel placeholder
-const isLogin = false
+const isLogin = true
 
 const PrivateRoutes = ({ component: Component, exact, path, restricted, ...rest }) => {
     return (
