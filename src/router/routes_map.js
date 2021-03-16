@@ -1,5 +1,5 @@
 const RoutesMap = {
-    public: [
+    publicRoutes: [
         {
             restricted: true,
             exact: true,
@@ -7,7 +7,7 @@ const RoutesMap = {
             component: () => <div>Component placeholder</div>
         }
     ],
-    private: [
+    privateRoutes: [
         {
             exact: true,
             path: '',
