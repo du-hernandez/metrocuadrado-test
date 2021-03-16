@@ -1,3 +1,5 @@
+import { Home } from '../scenes'
+
 const PublicRoutesMap = [
     {
         restricted: true,
@@ -11,7 +13,7 @@ const PrivateRoutesMap = [
     {
         exact: true,
         path: '/home',
-        component: () => <div>Component placeholder rarito</div>
+        component: Home
     },
     {
         exact: true,

@@ -19,8 +19,6 @@ class Api {
         params: this.params
     })
 
-    constructor() { }
-
     setParams(params) {
         this.params = { ...this.params, ...params }
     }
