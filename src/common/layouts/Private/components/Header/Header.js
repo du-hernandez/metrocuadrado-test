@@ -16,7 +16,7 @@ const PrivateHeader = () => {
                 <Menu.Item key="3">Contact us</Menu.Item>
             </Menu>
             <div className='notifications-area'>
-                <p className='favorites'><StarOutlined style={{ }} /></p>
+                <p className='favorites'><StarOutlined /></p>
                 <p><ShoppingCartOutlined /></p>
             </div>
         </Header>

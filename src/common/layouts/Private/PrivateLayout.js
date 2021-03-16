@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom'
 import { MapRouteBreaks } from '../../utils'
 import PrivateHeader from './components/Header/Header'
 import PrivateBreadcrumb from './components/Breadcrumb/Breadcrumb'
+import Footer from './components/Footer/Footer'
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 const PrivateLayout = ({ children }) => {
 
@@ -17,11 +18,11 @@ const PrivateLayout = ({ children }) => {
             <PrivateHeader />
             <Content className='private-content-layout'>
                 <PrivateBreadcrumb />
-                <div className="">
+                <div className="private-container-layout">
                     {children}
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>Footer</Footer>
+            <Footer />
         </Layout>
     )
 }
