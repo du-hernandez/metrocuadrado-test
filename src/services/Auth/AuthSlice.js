@@ -14,11 +14,12 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         signIn(state) {
-            state.loading = true
+            // state.loading = true
             state.isLogin = true
         },
         signInSuccess(state, { payload: { user } }) {
             state.user = user
+            state.isLogin = true
             state.loading = false
 
         },
@@ -31,6 +32,7 @@ const authSlice = createSlice({
             state = initialState
         },
         setGoogleAuth(state, { payload }) {
+            state.loading = true
             state.googleAuth = payload
         }
     }
