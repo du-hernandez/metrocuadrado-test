@@ -5,7 +5,8 @@ const initialState = {
     loading: false,
     error: null,
     user: null,
-    email: null
+    email: null,
+    googleAuth: null,
 }
 
 const authSlice = createSlice({
@@ -28,6 +29,9 @@ const authSlice = createSlice({
         signOut(state) {
             state.isLogin = false
             state = initialState
+        },
+        setGoogleAuth(state, { payload }) {
+            state.googleAuth = payload
         }
     }
 })

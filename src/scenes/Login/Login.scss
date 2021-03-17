@@ -5,7 +5,6 @@
 	height: 100%;
 
 	.slogan-auth {
-		// position: absolute;
 		top: 0px;
 		color: $primary-color;
 		font-family: 'Dancing Script';
@@ -51,14 +50,6 @@
 			height: 35px;
 		}
 	}
-
-	// label {
-	// 	color: $primary-color;
-	// }
-
-	// input {
-	// 	color: $primary-color;
-	// }
 }
 
 .slogan-auth {
@@ -73,4 +64,12 @@
 	span {
 		font-size: 12pt;
 	}
+}
+
+.google-button {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
 }

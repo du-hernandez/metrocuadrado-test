@@ -1,3 +1,5 @@
+export { default as RefreshToken } from './refreshToken'
+
 export const MapRouteBreaks = (path, separator = '/') => {
 
     if (path.substr(0, 1).indexOf(separator) >= 0) {
