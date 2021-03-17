@@ -26,14 +26,11 @@ export const schema = {
 };
 
 export const messages = {
-	required: '${label} es requerido',
+	required: 'Es requerido',
 	types: {
 		//   email: '${label} no es un e-mail válido',
 		email: 'No parece un corrreo válido',
 		number: 'No es un número válido',
 		regexp: 'Sólo números',
-	},
-	number: {
-		range: 'Debe ser entre ${min} y ${max}',
 	},
 };
