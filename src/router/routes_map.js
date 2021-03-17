@@ -1,11 +1,19 @@
 import { Home } from '../scenes'
+import Login from '../scenes/Login/Login'
+import Register from '../scenes/Register/Register'
 
 const PublicRoutesMap = [
     {
         restricted: true,
         exact: true,
         path: '/',
-        component: () => <div>Component placeholder</div>
+        component: Login
+    },
+    {
+        restricted: true,
+        exact: true,
+        path: '/register',
+        component: Register
     }
 ]
 
@@ -15,11 +23,6 @@ const PrivateRoutesMap = [
         path: '/home',
         component: Home
     },
-    {
-        exact: true,
-        path: '/productDetail',
-        component: () => <div>Component placeholder</div>
-    }
 ]
 
 export { PublicRoutesMap, PrivateRoutesMap }
