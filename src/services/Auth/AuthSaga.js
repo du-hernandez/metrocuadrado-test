@@ -1,10 +1,12 @@
-import { takeLatest, all, put, select } from 'redux-saga/effects'
+import { all, put, takeLatest } from 'redux-saga/effects'
 import { authActions } from './AuthSlice'
-import { Api } from '../../common/config'
+// import { Api } from '../../common/config'
 
 function* setGoogleAuth({ payload }) {
 
-  console.log('payload++: ', payload)
+  // console.log('payload++: ', payload)
+
+  yield put(authActions.signInSuccess({ user: payload.profileObj }))
 
   // const {
   //     image_type,

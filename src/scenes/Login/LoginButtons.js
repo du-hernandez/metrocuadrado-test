@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Form, Button } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login'
@@ -11,8 +11,6 @@ const LoginButtons = () => {
 
   const history = useHistory()
   const dispatch = useDispatch()
-
-  const google = useSelector(state => state.auth)
 
   const googleLoginSuccess = res => {
     RefreshToken(res)
