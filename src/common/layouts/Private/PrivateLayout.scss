@@ -1,0 +1,14 @@
+@import './components/Header/Header.scss';
+@import './components/Breadcrumb/Breadcrumb.scss';
+@import './components/Footer/Footer.scss';
+
+.private-content-layout {
+    padding: 0 30px;
+}
+
+.private-container-layout {
+    display: flex;
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 20px;
+}
