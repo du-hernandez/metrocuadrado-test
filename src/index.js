@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './router'
 import { Provider } from 'react-redux'
 import { store } from './store/Store';
+import './sass/main.scss';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,12 +1,13 @@
+import React from 'react'
 import {
     BrowserRouter as Router,
     Switch
 } from 'react-router-dom'
 import { PrivateRoutes, PublicRoutes } from '../common/config'
 import { PrivateRoutesMap, PublicRoutesMap } from './routes_map'
+import { Layout } from '../common/layouts'
 
 const HandelrRoutes = () => {
-
 
     const publicRoutesComponents = PublicRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
@@ -21,6 +22,7 @@ const HandelrRoutes = () => {
         )
     })
 
+
     const privateRoutesComponents = PrivateRoutesMap.map(route => {
         const { component, exact, path, restricted } = route
         return (
@@ -31,13 +33,16 @@ const HandelrRoutes = () => {
                 path={path}
                 restricted={restricted}
             />
+
         )
     })
 
     return (
         <Router>
             <Switch>
-                {[...publicRoutesComponents, ...privateRoutesComponents]}
+                <Layout>
+                    {[privateRoutesComponents, publicRoutesComponents]}
+                </Layout>
             </Switch>
         </Router>
     )
