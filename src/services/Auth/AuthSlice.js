@@ -13,20 +13,35 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        signIn(state) {
-            // state.loading = true
-            state.isLogin = true
+        login(state) {
+            state.loading = true
         },
-        signInSuccess(state, { payload: { user } }) {
+        loginSuccess(state, { payload: { user } }) {
             state.user = user
             state.isLogin = true
             state.loading = false
 
         },
-        signInFail(state, { payload: { error } }) {
+        loginFail(state, { payload: { error } }) {
+            console.log('Handled error: ', error)
             state.error = error
             state.loading = false
         },
+
+        register(state) {
+            state.loading = true
+        },
+        registerSuccess(state, { payload: { user } }) {
+            state.user = user
+            state.isLogin = true
+            state.loading = false
+
+        },
+        registerFail(state, { payload: { error } }) {
+            state.error = error
+            state.loading = false
+        },
+
         signOut(state) {
             state.isLogin = false
             state = initialState

@@ -5,14 +5,14 @@ export const schema = {
 	}],
 	password: [{
 		required: true,
-		min: 5,
-		message: 'Debe tener al menos 5 caracteres'
+		min: 6,
+		message: 'Debe tener al menos 6 caracteres'
 	}],
 	password_confirm: [
 		{
 			required: true,
-			min: 5,
-			message: 'Debe tener al menos 5 caracteres'
+			min: 6,
+			message: 'Debe tener al menos 6 caracteres'
 		},
 		({ getFieldValue }) => ({
 			validator(_, value) {

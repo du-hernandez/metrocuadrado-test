@@ -1,37 +1,36 @@
-import { all, put, takeLatest } from 'redux-saga/effects'
+import { all, put, call, takeLatest } from 'redux-saga/effects'
 import { authActions } from './AuthSlice'
-// import { Api } from '../../common/config'
+import { firebase } from '../../common/config'
+import 'firebase/auth'
 
 function* setGoogleAuth({ payload }) {
+  yield put(authActions.loginSuccess({ user: payload.profileObj }))
+}
 
-  // console.log('payload++: ', payload)
+function* login({ payload }) {
+  const { correo, password } = payload
 
-  yield put(authActions.signInSuccess({ user: payload.profileObj }))
+  yield firebase.auth().signInWithEmailAndPassword(correo, password)
+    .then(res => {
+      put(authActions.loginSuccess({ user: res }))
+    })
+    .catch(error => put(authActions.loginFail({ error })))
+}
 
-  // const {
-  //     image_type,
-  //     category,
-  //     lang,
-  //     page,
-  //     per_page
-  // } = yield select(state => state.home);
-
-  // const response = yield Api.get('/', {
-  //     q,
-  //     image_type,
-  //     category,
-  //     lang,
-  //     page,
-  //     per_page
-  // })
-
-  // if (response && response.status === 200) {
-  //     yield put(homeActions.getClotheSuccess({ clothe: response.data.hits }))
-  // }
+function* register({ payload }) {
+  const { correo, password } = payload
+  yield firebase.auth().createUserWithEmailAndPassword(correo, password)
+    .then(res => {
+      console.log('register: ', res.user.email)
+      console.log('register: ', res.user.uid)
+    })
+    .catch(err => console.error('register: ', err))
 }
 
 function* actionWatcher() {
   yield takeLatest(authActions.setGoogleAuth, setGoogleAuth)
+  yield takeLatest(authActions.login, login)
+  yield takeLatest(authActions.register, register)
 }
 
 export default function* authSaga() {
