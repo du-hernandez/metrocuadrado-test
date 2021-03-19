@@ -14,7 +14,6 @@ const initialState = {
     enabled_cat: enabled_categories,
     clothe: [],
     error: null,
-    loading: false,
     total_pages: 0,
 }
 

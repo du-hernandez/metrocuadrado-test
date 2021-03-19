@@ -10,33 +10,30 @@ function* setGoogleAuth({ payload }) {
 
 function* login({ payload }) {
   const { correo, password } = payload
-
-  console.log('login de la saga')
-
-  yield firebase.auth().signInWithEmailAndPassword(correo, password)
-    .then(res => {
-      put(authActions.loginSuccess({ user: res }))
-    })
-    .catch(error => put(authActions.loginFail({ error })))
+  try {
+    const response = yield firebase.auth().signInWithEmailAndPassword(correo, password)
+    yield put(authActions.loginSuccess({ user: { email: correo } }))
+  } catch (error) {
+    yield put(authActions.loginFail({ error }))
+  }
 }
 
 function* register({ payload }) {
   const { correo, password } = payload
-  yield firebase.auth().createUserWithEmailAndPassword(correo, password)
-    .then(res => {
-      console.log('register: ', res.user.email)
-      console.log('register: ', res.user.uid)
-    })
-    .catch(err => console.error('register: ', err))
+  try {
+    const response = yield firebase.auth().createUserWithEmailAndPassword(correo, password)
+    yield put(authActions.registerSuccess({ user: { email: correo } }))
+  } catch (error) {
+    yield put(authActions.registerFail({ error }))
+  }
 }
 
 function* listener(payload) {
   const { type } = payload
+  if (/getLoading/.test(type)) return;
   const matches = /(Request|Success|Fail)/.test(type);
-  console.log('matches >>>: ', matches)
-  console.log('type >>>: ', type)
-  console.log('payload >>> ', payload)
-  if (matches) { yield put(loadingActions.getLoading(type)) }
+  if (matches) { yield put(loadingActions.setLoading(type)) }
+  return;
 }
 
 function* actionWatcher() {

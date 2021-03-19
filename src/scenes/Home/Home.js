@@ -16,10 +16,7 @@ const Home = () => {
 
     const loading = useSelector(state => state.loading)
 
-	console.log('En HOME, loading: ', loading)
-
     const clothe = useSelector(clothesSelector(), shallowEqual)
-    // console.log(clothe)
 
     return (
         <div className='home-container'>

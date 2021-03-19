@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { Form } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../services/Auth/AuthSlice'
+import { loadingSelector } from '../../services/LoadingSelector'
 import { messages } from './LoginValidations'
 import LoginFields from './LoginFields'
 import LoginButtons from './LoginButtons'
@@ -9,11 +10,12 @@ import LoginButtons from './LoginButtons'
 const Login = () => {
 
 	const dispatch = useDispatch()
-	const loading = useSelector(state => state.loading)
 
-	console.log('state => state.loading: ', loading)
+	const { loginRequest } = authActions
 
-	const onFinish = values => dispatch(authActions.loginRequest(values));
+	const loading = useSelector(loadingSelector(authActions.loginRequest.toString()), shallowEqual)
+
+	const onFinish = values => dispatch(loginRequest(values));
 
 	return (
 		<Form
@@ -22,7 +24,8 @@ const Login = () => {
 			validateMessages={messages}
 			onFinish={onFinish}
 			layout='vertical'
-		// onFinishFailed={onFinishFailed}
+			style={loading ? { filter: `blur(5px)` } : {}}
+			// onFinishFailed={onFinishFailed}
 		>
 			<div className='slogan-auth'>
 				<p>ET Fashion</p>
