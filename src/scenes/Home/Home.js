@@ -9,7 +9,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(homeActions.getClothe({ q: 'Jacket' }))
+        dispatch(homeActions.getClotheRequest({ q: 'Jacket' }))
         return () => {
         }
     }, [dispatch])
