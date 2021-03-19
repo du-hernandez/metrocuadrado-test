@@ -13,7 +13,7 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state) {
+        loginRequest(state) {
             state.loading = true
         },
         loginSuccess(state, { payload: { user } }) {
@@ -28,7 +28,7 @@ const authSlice = createSlice({
             state.loading = false
         },
 
-        register(state) {
+        registerRequest(state) {
             state.loading = true
         },
         registerSuccess(state, { payload: { user } }) {

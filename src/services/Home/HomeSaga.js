@@ -27,7 +27,7 @@ function* getClothe({ payload: { q } }) {
 }
 
 function* actionWatcher() {
-    yield takeLatest(homeActions.getClothe, getClothe)
+    yield takeLatest(homeActions.getClotheRequest, getClothe)
 }
 
 export default function* homeSaga() {

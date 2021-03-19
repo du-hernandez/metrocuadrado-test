@@ -9,7 +9,7 @@ const Register = () => {
 
 	const dispatch = useDispatch()
 
-	const onFinish = values => dispatch(authActions.register(values))
+	const onFinish = values => dispatch(authActions.registerRequest(values))
 
 	return (
 		<Form

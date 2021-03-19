@@ -1,5 +1,6 @@
+import React, { useEffect } from 'react'
 import { Form } from 'antd'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../services/Auth/AuthSlice'
 import { messages } from './LoginValidations'
 import LoginFields from './LoginFields'
@@ -8,8 +9,11 @@ import LoginButtons from './LoginButtons'
 const Login = () => {
 
 	const dispatch = useDispatch()
+	const loading = useSelector(state => state.loading)
 
-	const onFinish = values => dispatch(authActions.login(values));
+	console.log('state => state.loading: ', loading)
+
+	const onFinish = values => dispatch(authActions.loginRequest(values));
 
 	return (
 		<Form

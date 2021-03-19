@@ -22,7 +22,7 @@ const homeSlice = createSlice({
     name: 'home',
     initialState,
     reducers: {
-        getClothe(state, { payload: { q } }) {
+        getClotheRequest(state, { payload: { q } }) {
             state.q = q
             state.loading = true
         },
