@@ -18,7 +18,7 @@ const PrivateLayout = ({ children }) => {
                     {children}
                 </div>
             </Content>
-            <Footer />
+            {/* <Footer /> */}
         </Layout>
     )
 }

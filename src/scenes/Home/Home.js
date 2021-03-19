@@ -1,29 +1,33 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
+import { ProductCard } from '../../components'
 import { homeActions } from '../../services/Home/HomeSlice'
-// import { clothesSelector } from './HomeSelector'
+import { clothesSelector } from './HomeSelector'
 
 const Home = () => {
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(homeActions.getClotheRequest({ q: 'people' }))
+        dispatch(homeActions.getClothe({ q: 'Jacket' }))
         return () => {
         }
     }, [dispatch])
-
 
     const loading = useSelector(state => state.loading)
 
 	console.log('En HOME, loading: ', loading)
 
-    // const clothe = useSelector(clothesSelector(), shallowEqual)
+    const clothe = useSelector(clothesSelector(), shallowEqual)
     // console.log(clothe)
 
     return (
-        <div style={{}}>
-            <p>Lista de Categorías de Prendas</p>
+        <div className='home-container'>
+            {
+                clothe && (
+                    clothe.map(item => <ProductCard key={item.id} product={item} />)
+                )
+            }
         </div>
     )
 }

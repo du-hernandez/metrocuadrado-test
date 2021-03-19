@@ -1,2 +1,1 @@
-// Export component format placeholder
-// export { default as Resource } from './Resource'
+export { default as ProductCard } from './ProductCard/ProductCard'

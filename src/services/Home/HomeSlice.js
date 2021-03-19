@@ -6,9 +6,9 @@ const initialState = {
     image_type: 'photo',
     category: 'fashion',
     lang: 'en',
-    q: 'clothes',
+    q: 'shirt',
     page: 1,
-    per_page: 30,
+    per_page: 40,
 
     enabled_lan: enabled_languages,
     enabled_cat: enabled_categories,
