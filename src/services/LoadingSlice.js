@@ -7,8 +7,6 @@ const loadingSlice = createSlice({
   initialState,
   reducers: {
     setLoading(state, { payload }) {
-      console.log('Llegó!')
-
       const key = payload.split('/')
 
       const indexAr = ['Request', 'Success', 'Fail'].map(i => key[1].indexOf(i))
