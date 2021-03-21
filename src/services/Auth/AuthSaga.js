@@ -2,7 +2,7 @@ import { all, put, call, takeLatest, takeEvery } from 'redux-saga/effects'
 import { authActions } from './AuthSlice'
 import { firebase } from '../../common/config'
 import 'firebase/auth'
-import { loadingActions } from '../LoadingSlice'
+import { loadingActions } from '../common/Loading/LoadingSlice'
 
 function* setGoogleAuth({ payload }) {
   yield put(authActions.loginSuccess({ user: payload.profileObj }))
@@ -28,19 +28,19 @@ function* register({ payload }) {
   }
 }
 
-function* listener(payload) {
-  const { type } = payload
-  if (/getLoading/.test(type)) return;
-  const matches = /(Request|Success|Fail)/.test(type);
-  if (matches) { yield put(loadingActions.setLoading(type)) }
-  return;
-}
+// function* listener(payload) {
+//   const { type } = payload
+//   if (/getLoading/.test(type)) return;
+//   const matches = /(Request|Success|Fail)/.test(type);
+//   if (!matches) return
+//   yield put(loadingActions.setLoading(type))
+// }
 
 function* actionWatcher() {
   yield takeLatest(authActions.setGoogleAuth, setGoogleAuth)
   yield takeLatest(authActions.loginRequest, login)
   yield takeLatest(authActions.registerRequest, register)
-  yield takeEvery('*', listener)
+  // yield takeEvery('*', listener)
 }
 
 export default function* authSaga() {

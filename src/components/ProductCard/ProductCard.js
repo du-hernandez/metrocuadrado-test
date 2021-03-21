@@ -4,8 +4,6 @@ import { MapRouteBreaks } from '../../common/utils'
 
 const ProductCard = ({ product }) => {
 
-  console.log('product: ', product)
-
   const {
     comments,
     downloads,

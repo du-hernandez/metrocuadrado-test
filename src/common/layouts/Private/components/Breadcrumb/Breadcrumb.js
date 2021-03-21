@@ -12,7 +12,7 @@ const CustomeBreadcrumb = () => {
         <Breadcrumb className='private-breadcrumb-layout'>
             {
                 mapRoutes.map(route => (
-                    <Breadcrumb.Item key={route} className>
+                    <Breadcrumb.Item key={route}>
                         {route.replace(/^\w/, (c) => c.toUpperCase())}
                     </Breadcrumb.Item>))
             }
