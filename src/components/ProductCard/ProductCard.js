@@ -1,7 +1,10 @@
-import { Image, Badge } from 'antd'
+import { Image, Badge, Tag } from 'antd'
+import { StarFilled } from '@ant-design/icons'
 import { MapRouteBreaks } from '../../common/utils'
 
 const ProductCard = ({ product }) => {
+
+  console.log('product: ', product)
 
   const {
     comments,
@@ -33,17 +36,22 @@ const ProductCard = ({ product }) => {
   return (
     <div className='container-product'>
       <Image
-        width='100%'
+        width='200px'
         src={largeImageURL}
         className='product-image'
       />
+      <Tag color="orange" className='star-favorites'>
+        <StarFilled
+          style={{ color: 'orange' }}
+        /> {favorites}
+      </Tag>
       <div className='badge-container'>
         {
           proc_tags.map(tag => (
             <Badge
-            key={tag}
-            count={tag}
-            style={{ backgroundColor: '#52c41a' }} />
+              key={tag}
+              count={tag}
+              style={{ backgroundColor: '#52c41a', fontSize: '8pt' }} />
           ))
         }
       </div>

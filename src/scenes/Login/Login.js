@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Form } from 'antd'
+import { Form, Spin } from 'antd'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../services/Auth/AuthSlice'
 import { loadingSelector } from '../../services/LoadingSelector'
@@ -18,21 +18,30 @@ const Login = () => {
 	const onFinish = values => dispatch(loginRequest(values));
 
 	return (
-		<Form
-			name="normal_login"
-			className="login-form"
-			validateMessages={messages}
-			onFinish={onFinish}
-			layout='vertical'
-			style={loading ? { filter: `blur(5px)` } : {}}
+		<React.Fragment>
+			<Form
+				name="normal_login"
+				className="login-form"
+				validateMessages={messages}
+				onFinish={onFinish}
+				layout='vertical'
+				style={loading ? { filter: `blur(5px)` } : {}}
 			// onFinishFailed={onFinishFailed}
-		>
-			<div className='slogan-auth'>
-				<p>ET Fashion</p>
-			</div>
-			<LoginFields />
-			<LoginButtons />
-		</Form>
+			>
+				<div className='slogan-auth'>
+					<p>ET Fashion</p>
+				</div>
+				<LoginFields />
+				<LoginButtons />
+			</Form>
+			{loading && (
+				<Spin
+					tip="Loading..."
+					size="large"
+					className='spin-login'
+				/>
+			)}
+		</React.Fragment>
 	)
 }
 
