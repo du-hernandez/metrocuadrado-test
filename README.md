@@ -1,16 +1,22 @@
 # Metrocuadrado Test
 
-Proyecto prueba de conocimientos para optar a la posicón Front End developer
+Proyecto prueba de conocimientos para optar a la posicón Front End developer.
 
-## Scripts disponibles
+Web App publicada en https://metrocuadrado4.herokuapp.com/
+
+## Si desea probar la aplicación en su embiente local:
+
+### `git clone https://github.com/du-hernandez/metrocuadrado-test.git`
+
+### `cd metrocuadrado-test`
+
+### `yarn install`
+o
+### `npm install`
 
 ### `yarn start`
-
-Corre la aplicación en modo desarrollo
-
-### `yarn build`
-
-Construye la aplicación para producción en la carpeta `build`. \
+o
+### `npm start`
 
 
 ## Arquitectura de la aplicación
