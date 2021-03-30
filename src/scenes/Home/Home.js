@@ -9,13 +9,14 @@ const Home = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(homeActions.getClothe({ q: 'Jacket' }))
+        dispatch(homeActions.getClotheRequest({ q: 'Jacket' }))
         return () => {
         }
     }, [dispatch])
 
+    const loading = useSelector(state => state.loading)
+
     const clothe = useSelector(clothesSelector(), shallowEqual)
-    console.log(clothe)
 
     return (
         <div className='home-container'>

@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     isLogin: false,
-    loading: false,
-    error: null,
     user: null,
     email: null,
     googleAuth: null,
@@ -13,26 +11,32 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        signIn(state) {
-            // state.loading = true
-            state.isLogin = true
-        },
-        signInSuccess(state, { payload: { user } }) {
+        loginRequest() { },
+
+        loginSuccess(state, { payload: { user } }) {
             state.user = user
             state.isLogin = true
-            state.loading = false
+        },
 
+        loginFail() { },
+        registerRequest() { },
+
+        registerSuccess(state, { payload: { user } }) {
+            state.user = user
+            state.isLogin = true
         },
-        signInFail(state, { payload: { error } }) {
-            state.error = error
-            state.loading = false
+
+        // registerFail(state, { payload: { error } }) {
+        registerFail() {
+            // state.error = error
         },
+
         signOut(state) {
             state.isLogin = false
             state = initialState
         },
+
         setGoogleAuth(state, { payload }) {
-            state.loading = true
             state.googleAuth = payload
         }
     }

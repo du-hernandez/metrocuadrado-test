@@ -1,11 +1,15 @@
+import { useDispatch } from 'react-redux'
 import { Form } from 'antd'
+import { authActions } from '../../services/Auth/AuthSlice'
 import { messages } from './RegisterValidations'
 import RegisterFields from './RegisterFields'
 import RegisterButtons from './RegisterButtons'
 
 const Register = () => {
 
-	const onFinish = values => console.log('Values: ', values)
+	const dispatch = useDispatch()
+
+	const onFinish = values => dispatch(authActions.registerRequest(values))
 
 	return (
 		<Form

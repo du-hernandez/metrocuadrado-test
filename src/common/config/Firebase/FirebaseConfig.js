@@ -10,4 +10,7 @@ const firebaseConfig = {
   appId: Env.get('FIREBASE_APP_ID'),
 };
 
-export default firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
+firebase.auth()
+
+export default firebase
