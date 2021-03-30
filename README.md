@@ -4,7 +4,7 @@ Proyecto prueba de conocimientos para optar a la posicón Front End developer.
 
 Web App publicada en https://metrocuadrado4.herokuapp.com/
 
-## Si desea probar la aplicación en su embiente local:
+## Probar la aplicación en su entorno local:
 
 ### Acceso rápido
 #### yarn
