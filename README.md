@@ -6,6 +6,14 @@ Web App publicada en https://metrocuadrado4.herokuapp.com/
 
 ## Si desea probar la aplicación en su embiente local:
 
+### Acceso rápido
+#### yarn
+`git clone https://github.com/du-hernandez/metrocuadrado-test.git && cd metrocuadrado-test && yarn install && yarn start`
+#### npm
+`git clone https://github.com/du-hernandez/metrocuadrado-test.git && cd metrocuadrado-test && npm install && npm start`
+
+### Acceso detallado
+
 `git clone https://github.com/du-hernandez/metrocuadrado-test.git`
 
 `cd metrocuadrado-test`
