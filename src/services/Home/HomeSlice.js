@@ -13,8 +13,6 @@ const initialState = {
     enabled_lan: enabled_languages,
     enabled_cat: enabled_categories,
     clothe: [],
-    error: null,
-    loading: false,
     total_pages: 0,
 }
 
@@ -22,16 +20,13 @@ const homeSlice = createSlice({
     name: 'home',
     initialState,
     reducers: {
-        getClothe(state, { payload: { q } }) {
+        getClotheRequest(state, { payload: { q } }) {
             state.q = q
-            state.loading = true
         },
         getClotheSuccess(state, { payload: { clothe } }) {
-            state.loading = false
             state.clothe = clothe
         },
         getClotheFail(state, { payload: { error } }) {
-            state.loading = false
             state.error = error
         },
         setPage(state, { payload: { page } }) {
