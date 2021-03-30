@@ -5,10 +5,9 @@ function* listener(payload) {
 
   const { type } = payload
   
-  if (/getLoading/.test(type)) return;
   const matches = /(Request|Success|Fail)/.test(type);
   if (!matches) return
-  console.log(type)
+  // console.log(type)
   yield put(loadingActions.setLoading(type))
 }
 

@@ -11,23 +11,24 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        loginRequest() {},
+        loginRequest() { },
 
         loginSuccess(state, { payload: { user } }) {
             state.user = user
             state.isLogin = true
         },
 
-        loginFail() {},
-        registerRequest() {},
+        loginFail() { },
+        registerRequest() { },
 
         registerSuccess(state, { payload: { user } }) {
             state.user = user
             state.isLogin = true
         },
 
-        registerFail(state, { payload: { error } }) {
-            state.error = error
+        // registerFail(state, { payload: { error } }) {
+        registerFail() {
+            // state.error = error
         },
 
         signOut(state) {

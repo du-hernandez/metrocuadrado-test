@@ -23,6 +23,16 @@ const PrivateRoutesMap = [
         path: '/home',
         component: Home
     },
+    {
+        exact: true,
+        path: '/about',
+        component: ()=><label>About</label>
+    },
+    {
+        exact: true,
+        path: '/contact_us',
+        component: ()=><label>Contact us</label>
+    },
 ]
 
 export { PublicRoutesMap, PrivateRoutesMap }

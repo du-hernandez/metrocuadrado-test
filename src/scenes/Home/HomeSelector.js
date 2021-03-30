@@ -1,5 +1,6 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect";
 
-const homeSelector = state => state.home
+const homeSelector = (state) => state.home;
 
-export const clothesSelector = () => createSelector(homeSelector, home => home.clothe)
+export const clothesSelector = () =>
+  createSelector(homeSelector, (home) => home.clothe);
