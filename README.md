@@ -81,5 +81,5 @@ En línea con los principios de Separación de Preocupaciones (SoC) y SOLID, la 
 ## Destacado
 
 - Con el principio SoC como directriz, se crearon servicios especiales para la gestión del estado de carga y el registro de errores de la aplicación. A través de ésta estrategia se desliga esa preocupación de los reducer's
-- Se definió archivos de configuración para rutas públicas y privadas. De esa forma, si un usuario sin autorización o con sessión activa intenta acceder a recursos que no corresponden, será redireccionado a la página de inicio o a la página home, respectivamente.
+- Se definió archivos de configuración para rutas públicas y privadas. De esa forma, si un usuario sin autorización o con sessión activa intenta acceder a recursos que no corresponden, será redireccionado a la página de login o a la página home, respectivamente.
 
