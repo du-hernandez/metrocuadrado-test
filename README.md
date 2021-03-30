@@ -65,3 +65,21 @@ En línea con los principios de Separación de Preocupaciones (SoC) y SOLID, la 
 
     - ```store```
       Agrupa el estado global de la aplicación, entre ellos, la respuesta y le progreso de consumir recursos externos o el avance de un proceso que lleva el usuario, etc.
+      
+
+
+## Precisiones
+
+### Patrones de diseño abordados
+
+	- Singleton design patter
+	Tiene lugar en la configuración del API. Allí se hace uso de axios, se configura y retorna una instancia (axios instance) para ser utilizada por los servicios
+	
+	- Adapter design pattern
+	Utilizado en la negociación entre la API y la aplicaión, se define en el directorio src/services/providers
+	
+## Destacado
+
+- Con el principio SoC como directriz, se crearon servicios especiales para la gestión del estado de carga y el registro de errores de la aplicación. A través de ésta estrategia se desliga esa preocupación de los reducer's
+- Se definió archivos de configuración para rutas públicas y privadas. De esa forma, si un usuario sin autorización o con sessión activa intenta acceder a recursos que no corresponden, será redireccionado a la página de inicio o a la página home, respectivamente.
+
