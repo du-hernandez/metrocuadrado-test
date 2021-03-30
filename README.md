@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Metrocuadrado Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto prueba de conocimientos para optar a la posicón Front End developer
 
-## Available Scripts
-
-In the project directory, you can run:
+## Scripts disponibles
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Corre la aplicación en modo desarrollo
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`. \
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Arquitectura de la aplicación
 
-### `yarn eject`
+En línea con los principios de Separación de Preocupaciones (SoC) y SOLID, la estructura de carpetas fue definida como sigue:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- ```src```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - ```assets```
+    Almacena activos como imágenes, fuentes de texto, etc.
+    
+    - ```common```
+    Precisiones comunes a todo el proyecto
+    	- ```config```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    		- ```Api```
+    		Establece la configuración necesaria para consumir recursos externos, por ejemplo, API Rest. (Singleton design pattern)
+    		
+    		- ```Environment```
+    		  Integra y hace alcanzables las variables de entorno definidas en el archivo .env.
+    		
+    		- ```Router```
+    		  Define la configuración para la gestión de rutas públicas y privadas
+    		
+    	- ```constants```
+    	- ```layouts```
+    	- ```utils```
+    	  Define utilidades especiales alcanzables desde cualquier ámbito de la aplicaión
+    
+    - ```components```
+    Agrupa todos los componentes reutilizables
+    	
+    - ```router```
+      Mapea todas la rutas de la aplicación. Precisa rutas públicas y privadas
+    
+    - ```sass```
+      Agrupa todos los archivos .scss de la aplicación. Define un árbol de directorios que se corresponse con el origen del archivo
+    
+    - ```scenes```
+      Agrupa todas las visuales de la aplicación
+    
+    - ```services```
+      Precisa las utilidades con las que se comunicará con recursos externos a la aplicación
+    	- ```common```
+    		- ```loading```
+		  Responsable de vigilar el progreso de respuesta de los recursos externos. Los hace visibles a la UI
+    		- ```error```
+		  Registra los errores al consumir recursos externos y los hace visibles a la UI
+    	- ```providers```
+		  Punto de negociación entre la aplicación y los recursos externos (Adapter design pattern)
+    	- ```...```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - ```store```
+      Agrupa el estado global de la aplicación, entre ellos, la respuesta y le progreso de consumir recursos externos o el avance de un proceso que lleva el usuario, etc.
